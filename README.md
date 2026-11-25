@@ -1,11 +1,16 @@
-# Moonpress 🌙
+# Moonpress 🌙 月亮的印刷厂
+
+[![在线演示](https://img.shields.io/badge/🌐_在线演示-moonpress-6ea8fe)](https://jiahecairen.github.io/moonpress/)
+[![release](https://img.shields.io/github/v/release/jiahecairen/moonpress)](https://github.com/jiahecairen/moonpress/releases/tag/v1.0.0)
+[![主题](https://img.shields.io/badge/主题-30款-f5a623)](docs/ACCEPTANCE.md)
 
 **Hexo 的结构 · WordPress 的功能 · 数据在你磁盘上。**
 
 本地优先的网站系统：内容就是 `source/` 下的 Markdown 文件，写作体验是完整后台（编辑器/媒体库/评论审核），产物是纯静态站——`generate` 之后扔给任何静态托管。
 
 ```bash
-npm install -g moonpress        # 或 git clone 后 npm install
+git clone https://github.com/jiahecairen/moonpress.git
+cd moonpress && npm install && npm link   # 全局获得 moonpress 命令
 moonpress init my-site          # 建站（Hexo 式目录骨架）
 cd my-site
 moonpress server -p 4100        # 开发服务器 + 后台 http://localhost:4100/admin
