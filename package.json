@@ -1,6 +1,6 @@
 {
   "name": "moonpress",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Local-first website system: Hexo's structure, WordPress's fundamentals. Markdown on disk, admin panel built in, static export out.",
   "license": "MIT",
   "type": "commonjs",

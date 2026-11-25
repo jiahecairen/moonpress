@@ -3,6 +3,15 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title><%= page.title %></title>
 <meta name="description" content="<%= page.description || site.description || site.subtitle %>">
+<meta property="og:site_name" content="<%= site.title %>">
+<meta property="og:title" content="<%= page.title %>">
+<meta property="og:description" content="<%= page.description || site.description || site.subtitle %>">
+<meta property="og:type" content="<%= typeof view_name!=='undefined'&&view_name==='post' ? 'article':'website' %>">
+<meta property="og:url" content="<%= full_url_for(page.path||'') %>">
+<% var _cov=page.cover||(page.post&&page.post.cover); if(_cov){ %>
+<meta property="og:image" content="<%= full_url_for(_cov) %>">
+<meta name="twitter:card" content="summary_large_image"><% }else{ %>
+<meta name="twitter:card" content="summary"><% } %>
 <link rel="alternate" type="application/rss+xml" href="<%= url_for('feed.xml') %>">
 <link rel="stylesheet" href="<%= url_for('css/slab.css') %>">
 <% if (theme.accent) { %><style>:root{--accent:<%= theme.accent %>}</style><% } %>

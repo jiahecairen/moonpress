@@ -72,3 +72,14 @@
   ≤640px 列表表格卡片化、按钮 42px+、登录卡自适应
 - 图片 `loading="lazy" + decoding="async"`（引擎 markdown 渲染 + 全部模板）
 - 验证：Chromium 393×852 真机视口逐主题截图；`theme-check` 30/30
+
+## 七、搜索 / 404 / 分享（v1.0.2）
+
+- 引擎内置 `/search/` 路由：主题有 `layout/search.ejs` 用主题皮，否则引擎独立页；
+  纯静态 `search.json` 客户端检索（标题+摘要+正文前 800 字+标签分类，160ms 防抖）
+- 404：server 与 generate 走同一 `notFoundHtml`——主题 `404.ejs` → 引擎独立页兜底；
+  Pages 站获得真实 `/404.html`（GitHub Pages 默认错误页）
+- OG 社交卡片全 30 主题注入：og:type=article/website、og:url 绝对地址、
+  封面自动 og:image + twitter:card=summary_large_image
+- 移动端导航改二级整行（不再藏链接，5 项一行放得下，44px 触摸区）
+- GitHub Actions：push→theme-check 30/30→deploy:pages 全自动

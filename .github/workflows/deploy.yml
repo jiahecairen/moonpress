@@ -1,0 +1,39 @@
+name: 🌙 Deploy Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'lib/**'
+      - 'themes/**'
+      - 'admin/**'
+      - 'bin/**'
+      - 'starter/**'
+      - 'tools/**'
+      - 'package*.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 依赖
+        run: npm install --no-audit --no-fund
+
+      - name: 主题回归（30 款）
+        run: bash tools/theme-check.sh
+
+      - name: 发布 gh-pages
+        run: bash tools/deploy-pages.sh
+        env:
+          PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          DEPLOY_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -107,7 +107,7 @@ body[data-theme=light]{--bg:#eef2fa;--panel:rgba(255,255,255,.8);--line:rgba(60,
  .wrap{padding:0 20px;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
  .nav .wrap{flex-wrap:wrap;height:auto;min-height:56px;padding-top:8px;padding-bottom:8px;gap:8px 16px}
  .logo{margin-right:auto;white-space:nowrap;font-size:var(--fs-2)}
- .links{display:none}
+ .links{display:flex;flex-basis:100%;order:3;gap:var(--s3);padding-top:8px;border-top:1px solid var(--line);font-size:var(--fs-0);white-space:nowrap;justify-content:flex-start;margin-left:0}
  .tools{gap:6px}
  .chip{font-size:var(--fs-0);padding:0 var(--s2)}
  .hero{padding:var(--s6) 0 var(--s5)}

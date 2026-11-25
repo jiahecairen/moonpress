@@ -5,6 +5,10 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 REPO="${1:-$(git remote get-url origin)}"
+# CI 环境：GITHUB_TOKEN 注入推送凭证（仅存在于临时 clone，目录随 trap 清理）
+if [ -n "${DEPLOY_TOKEN:-}" ]; then
+  REPO=$(echo "$REPO" | sed -E "s#(git@github.com:|https://github.com/)#https://x-access-token:${DEPLOY_TOKEN}@github.com/#")
+fi
 PAGES_BRANCH="${PAGES_BRANCH:-gh-pages}"
 PAGES_URL="${PAGES_URL:-$(echo "$REPO" | sed -E 's#(git@github.com:|https://github.com/)##; s#\.git$##; s#^#https://#')}"
 SUBPATH="/$(basename "$REPO" .git)"
