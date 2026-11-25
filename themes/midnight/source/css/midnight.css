@@ -98,5 +98,41 @@ body[data-theme=light]{--bg:#eef2fa;--panel:rgba(255,255,255,.8);--line:rgba(60,
 .cmt-form{display:flex;flex-direction:column;gap:var(--s1);margin-top:var(--s3);max-width:460px}
 .cmt-form input,.cmt-form textarea{background:rgba(10,16,32,.6);border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:10px 12px;font:inherit;font-size:var(--fs-1)}
 .cmt-form button{align-self:flex-start;background:var(--accent);color:var(--accent-ink);border:none;border-radius:10px;padding:11px 28px;font-weight:700;cursor:pointer}
-@media (prefers-reduced-motion:no-preference){[data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}[data-reveal].in{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){.js [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}.js [data-reveal].in{opacity:1;transform:none}}
 @media(max-width:860px){.works{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case aside{position:static}.nav .wrap{flex-wrap:wrap;gap:10px}}
+
+/* ── 移动端结构层 v1.0.1（moonlit 系） ── */
+@media (max-width:640px){
+ html{-webkit-text-size-adjust:100%;overflow-wrap:break-word}
+ .wrap{padding:0 20px;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+ .nav .wrap{flex-wrap:wrap;height:auto;min-height:56px;padding-top:8px;padding-bottom:8px;gap:8px 16px}
+ .logo{margin-right:auto;white-space:nowrap;font-size:var(--fs-2)}
+ .links{display:none}
+ .tools{gap:6px}
+ .chip{font-size:var(--fs-0);padding:0 var(--s2)}
+ .hero{padding:var(--s6) 0 var(--s5)}
+ .hero h1{font-size:clamp(32px,9vw,44px)!important;line-height:1.1}
+ .case{grid-template-columns:1fr;padding:var(--s4) 0 var(--s6)}
+ .case>div{order:1}
+ .case>div>h1{font-size:clamp(27px,7vw,40px)!important;line-height:1.12}
+ .case>aside{order:2;position:static;margin-top:var(--s6);padding:var(--s3);
+   background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+ .article h2{font-size:var(--fs-4);margin:var(--s6) 0 var(--s2);padding-top:var(--s4);border-top:1px solid var(--line)}
+ .article h3{font-size:var(--fs-3)}
+ .article ul,.article ol{padding-left:1.4em}
+ .article code{display:inline-block;max-width:100%;overflow-x:auto}
+ .metrics{grid-template-columns:repeat(2,1fr);gap:12px}
+ .comments h3{font-size:var(--fs-3)}
+ .cmt{padding:var(--s2);background:var(--panel);border:1px solid var(--line);border-radius:10px;margin-bottom:var(--s2)}
+ .cmt-form{max-width:none}
+ .cmt-form input,.cmt-form textarea{font-size:16px}
+ .cmt-form button{align-self:stretch;text-align:center}
+ .list a{flex-wrap:wrap;gap:4px 16px}
+ .list time{width:auto}
+ .list .t{font-size:var(--fs-3)}
+ .next-proj{padding:var(--s3)}
+ .about{flex-direction:column;text-align:center;gap:var(--s2)}
+ .footer{padding:var(--s5) 0 calc(var(--s4) + env(safe-area-inset-bottom))}
+ .pager{gap:var(--s1)}
+  .footer .cta{font-size:clamp(22px,6vw,40px);overflow-wrap:anywhere}
+}

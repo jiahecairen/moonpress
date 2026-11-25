@@ -69,3 +69,16 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
 .cmt-form button:hover{background:var(--accent);color:var(--bg)}
 .tfoot{text-align:center;color:var(--ink3);font-size:11px;letter-spacing:4px;padding:0 28px 46px}
 @media(max-width:640px){.term-head b{font-size:24px;letter-spacing:6px}.tnav{gap:20px;letter-spacing:2px}}
+
+/* ── 移动端结构层 v1.0.1 ── */
+@media (max-width:640px){
+ html{-webkit-text-size-adjust:100%;overflow-wrap:break-word}
+ .term-head{padding-top:8px;padding-bottom:8px;flex-wrap:wrap;row-gap:6px}
+ .tnav{gap:10px;flex-wrap:wrap}
+ .tnav a{white-space:nowrap}
+ .th1{font-size:23px!important;line-height:1.25}
+ .prose h2{font-size:18px}
+ .cmt-form input,.cmt-form textarea{font-size:16px;font-family:inherit;background:transparent;border:1px solid currentColor;border-radius:0;padding:10px}
+ .cmt-form button{width:100%;border-radius:0;font-family:inherit}
+ .comments input,.comments textarea{font-size:16px}
+}
