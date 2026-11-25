@@ -179,7 +179,9 @@ aside dd{margin-top:2px}
   .case>div{order:1}
   .case>aside{order:2;margin-top:var(--s6);padding:var(--s3);
     background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
-  .case .metrics{grid-template-columns:repeat(2,1fr);gap:var(--s2)}
+  .case .metrics{grid-template-columns:repeat(3,1fr);gap:var(--s1)}
+  .metric b{font-size:var(--fs-4)}
+  .case>aside dd{margin-bottom:var(--s2)}
   .metric b{font-size:var(--fs-5)}
   .tldr{padding:var(--s2) var(--s3);margin:var(--s3) 0 var(--s4)}
   .tldr .row{flex-direction:column;gap:2px}
