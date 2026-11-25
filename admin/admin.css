@@ -98,4 +98,40 @@ tr:hover td{background:#141419}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--panel);
   border:1px solid var(--accent);color:var(--ink);padding:10px 22px;border-radius:99px;z-index:99;
   box-shadow:0 8px 30px rgba(0,0,0,.4)}
-@media(max-width:900px){#app{grid-template-columns:1fr}.side{display:none}.editor{grid-template-columns:1fr}.meta-col{position:static}}
+/* ── 移动后台：侧栏变底部标签栏（iOS 风格，含安全区） ── */
+@media(max-width:900px){
+  #app{grid-template-columns:1fr}
+  .side{position:fixed;bottom:0;left:0;right:0;z-index:60;flex-direction:column;gap:0;
+    border-right:0;border-top:1px solid var(--line);background:var(--panel);
+    padding:4px 8px calc(4px + env(safe-area-inset-bottom))}
+  .brand,.side-foot{display:none}
+  .side nav{flex-direction:row}
+  .side nav a{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;
+    gap:2px;padding:7px 2px 5px;font-size:10px;border-radius:10px;text-align:center}
+  .side nav a i{font-style:normal;font-size:17px;line-height:1}
+  .side nav a em{font-style:normal}
+  .side nav a.on{background:transparent;color:var(--accent)}
+  .badge{position:absolute;top:2px;right:12%;margin:0}
+  .top{padding:12px 16px}
+  .view{padding:16px 16px 100px}
+  .editor{grid-template-columns:1fr}
+  .meta-col{position:static}
+  .toast{bottom:calc(84px + env(safe-area-inset-bottom));width:max-content;max-width:92vw}
+  .btn{min-height:42px}
+  input,textarea,select{font-size:16px}
+  #edBody{min-height:44vh}
+}
+@media(max-width:640px){
+  .side nav a em{display:none}
+  .login-card{width:min(340px,92vw);padding:30px 20px}
+  .cards{grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px}
+  .t-grid,.grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+  /* 列表表格卡片化：行即卡片，纵向堆叠 */
+  #view table thead{display:none}
+  #view table,#view tbody,#view tr,#view td{display:block;width:100%}
+  #view tr{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:10px 12px;margin-bottom:10px}
+  #view td{border:0;padding:3px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  #view td:first-child{font-weight:600}
+  #view .row-actions{justify-content:flex-end;padding-top:6px}
+}

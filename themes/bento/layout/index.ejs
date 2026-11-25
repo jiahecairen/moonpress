@@ -7,7 +7,7 @@
      const big = i === 0 && p.featured;
      const hasCover = p.cover && p.featured; %>
   <a class="b<%= big ? ' big' : '' %><%= hasCover ? ' img' : '' %>" href="<%= url_for(p.path) %>">
-    <% if (hasCover) { %><img src="<%= url_for(p.cover) %>" alt="<%= p.title %>" loading="<%= i < 2 ? 'eager' : 'lazy' %>"><div class="pad"><% } %>
+    <% if (hasCover) { %><img loading="lazy" decoding="async" src="<%= url_for(p.cover) %>" alt="<%= p.title %>" loading="<%= i < 2 ? 'eager' : 'lazy' %>"><div class="pad"><% } %>
     <span class="tagline"><%= p.categories.join(' · ') || '笔记' %></span>
     <h2><%= p.title %></h2>
     <p class="ex"><%= p.excerpt %></p>

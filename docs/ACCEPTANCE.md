@@ -61,3 +61,14 @@
 - 邮件通知 / WebDAV / 增量构建 / i18n 内容层未做（chrome 级双语已内建）
 - 主题后台预览为服务端渲染，非 iframe 沙箱
 - 富文本编辑器为 Markdown + 工具条（非所见即所得）
+
+## 六、移动端适配（v1.0.1）
+
+- 30/30 主题 ≤640px 结构层：恒定边距（≥20px + `env(safe-area-inset)`）、
+  标题 clamp 降档、导航防挤压换行、评论卡片化、输入框 16px（防 iOS 聚焦缩放）
+- moonlit 系：文章页正文先行、meta 沉底卡片、h2 分隔线节奏、页脚长邮箱 clamp
+- reveal 动画 `.js` 门：无 JS 环境内容全部可见；`.js` 前置由内联脚本注入
+- 后台 `/admin`：≤900px 侧栏 → iOS 风格底部标签栏（含安全区），
+  ≤640px 列表表格卡片化、按钮 42px+、登录卡自适应
+- 图片 `loading="lazy" + decoding="async"`（引擎 markdown 渲染 + 全部模板）
+- 验证：Chromium 393×852 真机视口逐主题截图；`theme-check` 30/30

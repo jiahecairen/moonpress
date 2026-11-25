@@ -19,7 +19,7 @@
     <span class="faint" style="font-size:var(--fs-0);letter-spacing:2px;text-transform:uppercase">
       <%= date(p.date, 'YYYY') %> · <%= p.tags.join(' · ') %></span>
     <h1 class="case-title"><%= p.title %></h1>
-    <% if (p.cover) { %><img src="<%= url_for(p.cover) %>" alt="<%= p.title %> — hero"
+    <% if (p.cover) { %><img loading="lazy" decoding="async" src="<%= url_for(p.cover) %>" alt="<%= p.title %> — hero"
       style="border-radius:var(--radius);border:1px solid var(--line)"><% } %>
 
     <% if (d.outcome || d.metrics) { %><div class="tldr" data-reveal>

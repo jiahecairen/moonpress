@@ -1,15 +1,20 @@
 {
   "name": "moonpress",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Local-first website system: Hexo's structure, WordPress's fundamentals. Markdown on disk, admin panel built in, static export out.",
   "license": "MIT",
   "type": "commonjs",
-  "engines": { "node": ">=18" },
-  "bin": { "moonpress": "bin/moonpress.js" },
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "moonpress": "bin/moonpress.js"
+  },
   "main": "lib/engine.js",
   "scripts": {
     "demo": "node bin/moonpress.js server -d starter -p 4100",
-    "build-demo": "node bin/moonpress.js generate -d starter"
+    "build-demo": "node bin/moonpress.js generate -d starter",
+    "deploy:pages": "bash tools/deploy-pages.sh"
   },
   "dependencies": {
     "ejs": "^3.1.10",

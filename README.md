@@ -1,7 +1,7 @@
 # Moonpress 🌙 月亮的印刷厂
 
 [![在线演示](https://img.shields.io/badge/🌐_在线演示-moonpress-6ea8fe)](https://jiahecairen.github.io/moonpress/)
-[![release](https://img.shields.io/github/v/release/jiahecairen/moonpress)](https://github.com/jiahecairen/moonpress/releases/tag/v1.0.0)
+[![release](https://img.shields.io/github/v/release/jiahecairen/moonpress)](https://github.com/jiahecairen/moonpress/releases/tag/v1.0.1)
 [![主题](https://img.shields.io/badge/主题-30款-f5a623)](docs/ACCEPTANCE.md)
 
 **Hexo 的结构 · WordPress 的功能 · 数据在你磁盘上。**
@@ -46,6 +46,15 @@ my-site/
 | 订阅 | `feed.xml`(RSS2.0) + `sitemap.xml` + `search.json` |
 | API | `GET /api/posts` `/api/posts/:slug` `/api/config` `/api/search?q=` |
 | 固定链接 | `date`(默认) / `pretty` / `ugly` 三模式 |
+| 移动端 | 30 款主题结构级适配：安全边距/刘海区、标题降档、评论卡片化；后台在手机上是底部标签栏 + 卡片列表，躺床上也能发文 |
+
+## GitHub Pages 一键部署
+
+```bash
+npm run deploy:pages    # 以 Pages 子路径重新生成 → 推送 gh-pages
+```
+
+脚本会复制 `starter/`、把 `url:`/`root:` 改写成仓库子路径、`generate` 后用 rsync 增量推送到 `gh-pages` 分支。
 
 ## 安全
 

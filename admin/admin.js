@@ -99,7 +99,7 @@ VIEWS.posts = async (q) => {
       <div class="dim" style="font-size:11px">/${esc(p.path)}</div></td>
     <td>${p.cats.map(c => `<span class="tag">${esc(c)}</span>`).join('')}${p.tags.map(t => `<span class="tag">#${esc(t)}</span>`).join('')}</td>
     <td>${p.draft ? '🌒 草稿' : '🌕 已发布'}</td>
-    <td class="dim">${p.words}</td>
+    <td class="dim">${p.words} 字</td>
     <td>${p.pending ? `<span class="tag" style="border-color:var(--bad)">${p.pending} 待审</span>` : '—'}</td>
     <td class="row-actions">
       <a class="btn sm" href="/${esc(p.path)}" target="_blank">预览</a>

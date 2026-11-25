@@ -2,7 +2,7 @@
 <article class="m-art">
   <h1><%= p.title %></h1>
   <p class="m-meta"><%= date(p.date) %><% if (p.reading_minutes) { %> · <%= p.reading_minutes %> 分钟<% } %><% if (p.tags.length) { %> · <%= p.tags.map(t=>'#'+t).join(' ') %><% } %></p>
-  <% if (p.cover) { %><img src="<%= url_for(p.cover) %>" alt="<%= p.title %>"><% } %>
+  <% if (p.cover) { %><img loading="lazy" decoding="async" src="<%= url_for(p.cover) %>" alt="<%= p.title %>"><% } %>
   <div class="prose"><%- page.content %></div>
   <%- page.comments_html || '' %>
   <% if (next) { %><p class="m-next">下一篇：<a href="<%= url_for(next.path) %>"><%= next.title %></a></p><% } %>

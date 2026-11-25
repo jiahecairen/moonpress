@@ -114,6 +114,8 @@ body[data-theme=light]{--bg:#f4f1fb;--panel:#fff;--line:#e0d8f0;--ink:#241a3d;--
  .article ul,.article ol{padding-left:1.4em}
  .article code{display:inline-block;max-width:100%;overflow-x:auto}
  .metrics{grid-template-columns:repeat(2,1fr);gap:12px}
+  .metric b{font-size:var(--fs-4)}
+  .case aside dd{margin-bottom:var(--s2)}
  .comments h3{font-size:var(--fs-3)}
  .cmt{padding:var(--s2);background:var(--panel);border:1px solid var(--line);border-radius:10px;margin-bottom:var(--s2)}
  .cmt-form{max-width:none}

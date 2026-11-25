@@ -4,7 +4,7 @@
 <div class="case">
   <span class="chip"><%= p.categories.join(' · ') %> · <%= date(p.date, 'YYYY-MM-DD') %></span>
   <h1><%= p.title %></h1>
-  <% if (p.cover) { %><div class="cover"><img src="<%= url_for(p.cover) %>" alt="<%= p.title %>"></div><% } %>
+  <% if (p.cover) { %><div class="cover"><img loading="lazy" decoding="async" src="<%= url_for(p.cover) %>" alt="<%= p.title %>"></div><% } %>
   <% if (Array.isArray(d.metrics)) { %><div class="stats">
     <% d.metrics.forEach(m => { %><div class="stat"><b><%= m.value %></b><span><%= m.label %></span></div><% }) %>
   </div><% } %>

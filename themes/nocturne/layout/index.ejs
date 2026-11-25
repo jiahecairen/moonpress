@@ -22,7 +22,7 @@
   <div class="works">
     <% feat.forEach((p, i) => { %>
     <a class="work" href="<%= url_for(p.path) %>" data-reveal>
-      <% if (p.cover) { %><div class="cover"><img src="<%= url_for(p.cover) %>" alt="<%= p.title %> — cover" loading="<%= i < 2 ? 'eager' : 'lazy' %>"></div><% } %>
+      <% if (p.cover) { %><div class="cover"><img loading="lazy" decoding="async" src="<%= url_for(p.cover) %>" alt="<%= p.title %> — cover" loading="<%= i < 2 ? 'eager' : 'lazy' %>"></div><% } %>
       <div style="padding:var(--s2) var(--s0) 0">
         <% if (theme.numbering) { %><span class="no"><%= String(i + 1).padStart(2, '0') %></span><% } %>
         <h3><%= p.title %></h3>
@@ -60,6 +60,6 @@
 <% } %>
 
 <section class="wrap about" data-reveal>
-  <img src="<%= url_for('img/avatar.svg') %>" alt="<%= AUTHOR %>">
+  <img loading="lazy" decoding="async" src="<%= url_for('img/avatar.svg') %>" alt="<%= AUTHOR %>">
   <p data-zh="<%= theme.about.zh %>" data-en="<%= theme.about.en %>"><%= theme.about.zh %></p>
 </section>
