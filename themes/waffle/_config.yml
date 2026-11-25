@@ -1,0 +1,24 @@
+author: ""            # 留空 = 用站点 author
+hero:
+  zh: "我为复杂产品做减法。"
+  en: "I design calm products out of complex systems."
+role:
+  zh: "产品设计师 · 8 年 · SaaS / 医疗 / 智能硬件"
+  en: "Product Designer · 8 yrs · SaaS / Health / Hardware"
+available:
+  zh: "开放远程机会 · 2026 Q1 起"
+  en: "Open to remote roles · from 2026 Q1"
+about:
+  zh: "八年产品设计，横跨 SaaS、医疗与智能硬件。我相信好的设计是看不见的——用户只记得顺畅，不记得我。"
+  en: "Eight years designing across SaaS, health and hardware. Good design is invisible — users remember the flow, not me."
+email: "hello@example.com"
+resume: "/resume.pdf"
+social:
+  GitHub: "https://github.com/yourname"
+  LinkedIn: "https://linkedin.com/in/yourname"
+  Dribbble: "https://dribbble.com/yourname"
+accent: ""            # 自定义强调色，留空 = 月辉琥珀
+numbering: true
+moon: true
+days_since: ""        # 如 "2026-11-25"：页脚显示本页存在天数
+default_lang: zh

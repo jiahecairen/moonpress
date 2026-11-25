@@ -1,0 +1,16 @@
+<footer class="footer">
+  <div class="wrap">
+    <p class="faint" style="font-size:var(--fs-1);margin-bottom:var(--s2)" data-zh="有合适的机会？我的收件箱很安静，正等你的信。" data-en="A role worth designing for? My inbox is quietly waiting.">有合适的机会？我的收件箱很安静，正等你的信。</p>
+    <a class="cta" href="mailto:<%= theme.email %>"><%= theme.email %></a>
+    <div class="social">
+      <% for (const [name, link] of Object.entries(theme.social || {})) { %>
+      <a href="<%= link %>" rel="me" target="_blank"><%= name %> ↗</a>
+      <% } %>
+    </div>
+    <div class="meta">
+      <% if (theme.moon) { %><span>🌘 Moonlit Folio</span><% } %>
+      <% if (theme.days_since) { %><span><span data-zh="本页存在了" data-en="This page has existed for">本页存在了</span> <span data-days="<%= theme.days_since %>"></span> <span data-zh="天" data-en="days">天</span></span><% } %>
+      <span>© <%= year %> <%= site.author %></span>
+    </div>
+  </div>
+</footer>

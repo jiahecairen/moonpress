@@ -1,0 +1,17 @@
+<div class="wrap feed">
+  <% page.posts.forEach(p => { %>
+  <article class="entry">
+    <div class="date"><%= date(p.date, 'YYYY') %><br><%= date(p.date, 'MM') %>月<%= date(p.date, 'DD') %>日</div>
+    <div>
+      <a href="<%= url_for(p.path) %>"><h2><%= p.title %></h2></a>
+      <p class="ex"><%= p.excerpt %></p>
+      <p class="meta"><%= p.categories.join(' / ') %> <% p.tags.forEach(t => { %><b>#<%= t %></b> <% }); %><% if (p.reading_minutes) { %>· <%= p.reading_minutes %> 分钟<% } %></p>
+    </div>
+  </article>
+  <% }) %>
+  <% const pg = page.pagination || {current:1,total:1}; if (pg.total > 1) { %>
+  <nav class="pager">
+    <% for (let n = 1; n <= pg.total; n++) { %><% if (n === pg.current) { %><span class="cur"><%= n %></span><% } else { %><a href="<%= url_for(n === 1 ? '' : 'page/' + n + '/') %>"><%= n %></a><% } %><% } %>
+  </nav>
+  <% } %>
+</div>

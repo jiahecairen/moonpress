@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title><%= page.title %></title>
+<meta name="description" content="<%= page.description || site.description || site.subtitle %>">
+<link rel="alternate" type="application/rss+xml" href="<%= url_for('feed.xml') %>">
+<link rel="stylesheet" href="<%= url_for('css/atelier.css') %>">
+<% if (theme.accent) { %><style>:root{--accent:<%= theme.accent %>}</style><% } %>
+</head><body>
+<div class="m-shell">
+  <header class="m-head">
+    <a class="m-brand" href="<%= url_for('/') %>"><%= site.title %></a>
+    <p class="m-tag"><%= site.subtitle %></p>
+    <nav class="m-nav">
+      <a href="<%= url_for('/') %>">首页</a>
+      <a href="<%= url_for('archives/') %>">归档</a>
+      <a href="<%= url_for('about/') %>">关于</a>
+      <a href="<%= url_for('feed.xml') %>">RSS</a>
+    </nav>
+  </header>
+  <main class="m-main">
+<%- body %>
+  </main>
+  <footer class="m-foot">© <%= year %> <%= site.author %></footer>
+</div>
+</body></html>

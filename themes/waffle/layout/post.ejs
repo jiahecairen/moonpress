@@ -1,0 +1,42 @@
+<%
+  const p = page.post;
+  const d = p.data;
+  const meta = [['角色','role'],['周期','period'],['平台','platform'],['团队','team'],['工具','tools']]
+    .filter(([, k]) => d[k]);
+  // 下一项目钩子（峰终）：按日期下一篇，没有则上一篇
+  const idx = site.posts.findIndex(x => x.slug === p.slug);
+  const next = site.posts[idx - 1] || site.posts[idx + 1];
+%>
+<article class="wrap case">
+  <aside>
+    <% if (meta.length) { %><dl>
+      <% meta.forEach(([label, key]) => { %><dt><%= label %></dt><dd><%= d[key] %></dd><% }) %>
+    </dl><% } %>
+    <p style="margin-top:var(--s4);font-size:var(--fs-0)"><a class="muted" href="<%= url_for('/') %>">← 返回首页</a></p>
+  </aside>
+
+  <div>
+    <span class="faint" style="font-size:var(--fs-0);letter-spacing:2px;text-transform:uppercase">
+      <%= date(p.date, 'YYYY') %> · <%= p.tags.join(' · ') %></span>
+    <h1 style="font-size:var(--fs-6);line-height:1.1;margin:var(--s1) 0 var(--s2)"><%= p.title %></h1>
+    <% if (p.cover) { %><img src="<%= url_for(p.cover) %>" alt="<%= p.title %> — hero"
+      style="border-radius:var(--radius);border:1px solid var(--line)"><% } %>
+
+    <% if (d.outcome || d.metrics) { %><div class="tldr" data-reveal>
+      <% if (d.outcome) { %><div class="row"><span class="k">一句话成果</span><span><%= d.outcome %></span></div><% } %>
+      <% if (Array.isArray(d.metrics)) { %><div class="metrics">
+        <% d.metrics.forEach(m => { %><div class="metric"><b><%= m.value %></b><span><%= m.label %></span></div><% }) %>
+      </div><% } %>
+    </div><% } %>
+
+    <div class="article"><%- page.content %></div>
+    <%- page.comments_html || '' %>
+
+    <% if (next) { %>
+    <a class="next-proj" href="<%= url_for(next.path) %>" data-reveal>
+      <div><span class="k">下一个项目</span><p class="t"><%= next.title %></p></div>
+      <span style="font-size:var(--fs-5)">→</span>
+    </a>
+    <% } %>
+  </div>
+</article>

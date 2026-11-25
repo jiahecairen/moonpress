@@ -1,0 +1,71 @@
+/* Hanji —— 宣纸水墨：生宣底、墨分五色、淡赭题跋 */
+:root{--bg:#f4efe3;--panel:#faf6ec;--line:#d8cfba;--ink:#241f18;--ink2:#6c6252;--ink3:#a79a83;--accent:#9c5f2e;
+  --serif:"Songti SC","Noto Serif SC","Hiragino Mincho ProN",Georgia,serif;--mono:ui-monospace,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:15.5px/2 var(--serif);
+  background-image:repeating-radial-gradient(circle at 20% 30%,rgba(160,130,90,.02) 0 2px,transparent 2px 7px),
+  repeating-radial-gradient(circle at 80% 70%,rgba(120,100,70,.02) 0 3px,transparent 3px 9px)}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+::selection{background:var(--ink);color:var(--bg)}
+:focus-visible{outline:1px solid var(--accent);outline-offset:4px}
+.term-head{padding:52px 28px 20px;white-space:normal;text-align:center;font-size:14px;color:var(--ink2)}
+.term-head .prompt{display:none}
+.term-head b{display:block;font-size:34px;letter-spacing:12px;font-weight:400;margin-bottom:14px}
+.term-head b::after{content:"";display:block;width:3px;height:34px;background:var(--accent);margin:16px auto 0}
+.term-head .dim{letter-spacing:4px;font-size:12.5px}
+.term-head .cmd{display:none}
+.tnav{padding:6px 28px 26px;display:flex;gap:44px;justify-content:center;font-size:13px;letter-spacing:4px}
+.tnav a{color:var(--ink2)}
+.tnav a:hover{color:var(--accent)}
+.tnav a::before{content:"「";color:var(--ink3)}
+.tnav a::after{content:"」";color:var(--ink3)}
+.tmain{max-width:700px;margin:0 auto;padding:0 28px 70px}
+.tblock{margin-bottom:44px}
+.prompt{display:none}
+.flist{margin-top:8px}
+.frow{display:flex;gap:18px;padding:15px 4px;font-size:14px;color:var(--ink2);align-items:baseline;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.frow:hover{background:var(--panel)}
+.frow:hover .ftitle{color:var(--accent)}
+.perm{display:none}
+.fdate{color:var(--ink3);font-size:12px;flex:0 0 92px;letter-spacing:1px}
+.fname{display:none}
+.ftitle{color:var(--ink);font-size:17px;letter-spacing:2px;flex:1}
+.ftitle::before{content:"· ";color:var(--accent)}
+.tpager{display:flex;gap:26px;margin-top:26px;font-size:13px;justify-content:center;letter-spacing:2px}
+.tpager span{color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:3px}
+.tpager a{color:var(--ink2)}
+.tmeta{display:flex;gap:22px;flex-wrap:wrap;color:var(--ink3);font-size:12px;margin:16px 0 8px;letter-spacing:2px;justify-content:center;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.th1{text-align:center;font-size:28px;font-weight:400;letter-spacing:6px;margin:10px 0 30px}
+.prose{color:#3a332a}
+.prose p{margin:0 0 1.5em;text-align:justify;letter-spacing:.5px}
+.prose h2{font-size:19px;font-weight:400;letter-spacing:5px;margin:2.2em 0 1em;text-align:center}
+.prose h2::before,.prose h2::after{content:" ─ ";color:var(--ink3)}
+.prose h3{font-size:16px;font-weight:400;letter-spacing:3px;margin:1.8em 0 .7em}
+.prose a{color:var(--accent);border-bottom:1px dotted var(--accent)}
+.prose blockquote{text-align:center;color:var(--ink2);margin:2em 3em;font-style:normal;letter-spacing:2px}
+.prose blockquote::before{content:"❝";display:block;color:var(--accent);font-size:26px;margin-bottom:6px}
+.prose pre{background:var(--panel);border:1px solid var(--line);padding:16px;overflow:auto;font:12.5px/1.7 var(--mono);margin:1.6em 0}
+.prose code{font:.9em var(--mono);background:var(--panel);padding:2px 6px;color:var(--accent)}
+.prose pre code{background:none;color:#3a332a}
+.prose img{border:4px solid #fff;box-shadow:0 0 0 1px var(--line),0 10px 26px -16px rgba(60,40,10,.4);margin:1.8em auto}
+.prose th,.prose td{border-bottom:1px solid var(--line);padding:8px 13px;text-align:left;font-size:14px}
+.prose table{border-collapse:collapse;margin:1.6em 0;width:100%}
+.prose thead th{border-bottom:1px solid var(--ink);letter-spacing:2px;font-size:13px}
+.prose ul,.prose ol{padding-left:1.6em;margin:0 0 1.5em}
+.tnext{margin-top:36px;font-size:14px;text-align:center;letter-spacing:3px;color:var(--ink2)}
+.tnext a{color:var(--accent)}
+.cursor{animation:breathe 2.4s ease-in-out infinite;color:var(--accent)}
+@keyframes breathe{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.cursor{animation:none}}
+.cmt{padding:13px 4px;border-bottom:1px solid var(--line)}
+.cmt b{letter-spacing:2px}
+.cmt time{color:var(--ink3);font-size:11px;margin-left:10px}
+.comments{margin-top:40px;border-top:1px solid var(--line);padding-top:20px}
+.comments h3{text-align:center;font-weight:400;letter-spacing:6px;margin-bottom:14px;color:var(--ink2);font-size:15px}
+.cmt-form{display:flex;flex-direction:column;gap:12px;margin-top:16px;max-width:420px;margin-inline:auto}
+.cmt-form input,.cmt-form textarea{background:var(--panel);border:1px solid var(--line);color:var(--ink);padding:10px 12px;font:14px var(--serif)}
+.cmt-form input:focus,.cmt-form textarea:focus{outline:none;border-color:var(--accent)}
+.cmt-form button{align-self:center;background:none;border:1px solid var(--accent);color:var(--accent);padding:10px 40px;font:13px var(--serif);letter-spacing:6px;cursor:pointer}
+.cmt-form button:hover{background:var(--accent);color:var(--bg)}
+.tfoot{text-align:center;color:var(--ink3);font-size:11px;letter-spacing:4px;padding:0 28px 46px}
+@media(max-width:640px){.term-head b{font-size:24px;letter-spacing:6px}.tnav{gap:20px;letter-spacing:2px}}

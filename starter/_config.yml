@@ -1,0 +1,15 @@
+title: Moonpress 演示站
+subtitle: 改过的副标题
+author: Moonpress
+description: 本地优先的网站系统演示：后台写作、媒体库、评论审核、主题切换、静态导出
+url: http://localhost:4100
+language: zh-CN
+permalink: date
+posts_per_page: 8
+theme: moonlit
+security:
+  password: admin
+  secret: b8b7fbc2b511e0aa8c71bba9bac9f52863e5ba8c0f5b01d7
+comments:
+  enabled: true
+  moderation: true

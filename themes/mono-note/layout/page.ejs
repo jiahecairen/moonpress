@@ -1,0 +1,6 @@
+<section class="tblock">
+<span class="prompt">$</span> cat page.md
+<h1 class="th1"><%= page.title %></h1>
+<div class="prose"><%- page.content %></div>
+<%- page.comments_html || '' %>
+</section>

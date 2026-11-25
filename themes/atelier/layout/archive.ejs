@@ -1,0 +1,4 @@
+<section class="m-list">
+  <h1 class="m-ah"><%= page.archive_name || '归档' %></h1>
+  <% page.posts.forEach(p => { %><a class="m-row" href="<%= url_for(p.path) %>"><time><%= date(p.date) %></time><span class="m-t"><%= p.title %></span></a><% }) %>
+</section>

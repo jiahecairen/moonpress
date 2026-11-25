@@ -1,0 +1,6 @@
+<section class="tblock">
+<span class="prompt">$</span> find / -name "*.md" <%= page.archive_name ? '| grep ' + page.archive_name : '' %> <span class="cursor">▊</span>
+<div class="flist">
+<% page.posts.forEach(p => { %><a class="frow" href="<%= url_for(p.path) %>"><span class="fdate"><%= date(p.date) %></span><span class="fname">./<%= p.slug %>.md</span><span class="ftitle"># <%= p.title %></span></a><% }) %>
+</div>
+</section>

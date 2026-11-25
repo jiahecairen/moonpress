@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="<%= page.post || page.view === 'page' ? 'light' : 'dark' %>">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= page.title %></title>
+  <meta name="description" content="<%= page.description || site.description || site.subtitle %>">
+  <link rel="alternate" type="application/rss+xml" title="<%= site.title %>" href="<%= url_for('feed.xml') %>">
+  <link rel="stylesheet" href="<%= url_for('css/nocturne.css') %>">
+  <% if (theme.accent) { %><style>:root{--accent:<%= theme.accent %>}</style><% } %>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"<%= site.author %>","email":"mailto:<%= theme.email %>","url":"<%= site.url %>"}</script>
+</head>
+<body data-default-lang="<%= theme.default_lang || 'zh' %>">
+  <a class="skip" href="#main" data-zh="跳到主要内容" data-en="Skip to content">跳到主要内容</a>
+  <%- include('partials/nav', { site: site, theme: theme, url_for: url_for }) %>
+  <main id="main"><%- body %></main>
+  <%- include('partials/footer', { site: site, theme: theme, year: year, url_for: url_for, date: date }) %>
+  <script src="<%= url_for('js/main.js') %>" defer></script>
+</body>
+</html>

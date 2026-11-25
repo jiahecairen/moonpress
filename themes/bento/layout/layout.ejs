@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title><%= page.title %></title>
+<meta name="description" content="<%= page.description || site.description || site.subtitle %>">
+<link rel="alternate" type="application/rss+xml" href="<%= url_for('feed.xml') %>">
+<link rel="stylesheet" href="<%= url_for('css/bento.css') %>">
+<% if (theme.accent) { %><style>:root{--accent:<%= theme.accent %>}</style><% } %>
+</head><body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="<%= url_for('/') %>"><i>▣</i> <%= site.title %></a>
+    <nav>
+      <a href="<%= url_for('/') %>">格子</a>
+      <a href="<%= url_for('archives/') %>">全部</a>
+      <a href="<%= url_for('about/') %>">关于</a>
+      <a href="<%= url_for('feed.xml') %>">RSS</a>
+    </nav>
+  </header>
+  <%- body %>
+  <footer class="foot">© <%= year %> <%= site.author %> · Bento Dark · Powered by Moonpress</footer>
+</div>
+</body></html>

@@ -1,0 +1,14 @@
+<% const p = page.post, d = p.data;
+   const idx = site.posts.findIndex(x => x.slug === p.slug);
+   const next = site.posts[idx - 1] || site.posts[idx + 1]; %>
+<div class="art">
+  <p class="kicker"><%= p.categories.join(' · ') %></p>
+  <h1><%= p.title %></h1>
+  <div class="byline"><span><%= site.author %></span><span><%= date(p.date, 'YYYY 年 MM 月 DD 日') %></span><% if (p.reading_minutes) { %><span><%= p.reading_minutes %> 分钟阅读</span><% } %></div>
+  <% if (p.cover) { %><img class="cover" src="<%= url_for(p.cover) %>" alt="<%= p.title %>"><% } %>
+  <% if (d.outcome) { %><div class="tldr-p"><b>提要</b> —— <%= d.outcome %></div><% } %>
+  <div class="prose dropcap"><%- page.content %></div>
+  <%- page.comments_html || '' %>
+  <% if (next) { %><a class="nextline" href="<%= url_for(next.path) %>">
+    <div><p class="k" >继续阅读</p><p class="t"><%= next.title %></p></div><span>→</span></a><% } %>
+</div>

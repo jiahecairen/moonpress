@@ -1,0 +1,4 @@
+<div class="plain listb">
+  <p style="color:var(--accent);letter-spacing:2px;text-transform:uppercase;font-size:12px;margin-bottom:14px"><%= page.archive_name || '全部' %> · <%= page.posts.length %></p>
+  <% page.posts.forEach(p => { %><a href="<%= url_for(p.path) %>"><span class="t"><%= p.title %></span><time><%= date(p.date, 'YYYY-MM') %></time></a><% }) %>
+</div>

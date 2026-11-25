@@ -1,0 +1,64 @@
+/* Atelier —— 画室：亚麻画布底、颜料色标、画廊标签 */
+:root{--bg:#eceadf;--panel:#f6f4ea;--ink:#2b2924;--ink2:#6e6a5e;--ink3:#a09a89;--line:#d5d0bf;--accent:#a3742c;--c2:#5d6e4e;--c3:#8d4438}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:15.5px/1.9 "Georgia","Songti SC",serif;
+  background-image:repeating-linear-gradient(0deg,rgba(120,110,85,.04) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(120,110,85,.04) 0 1px,transparent 1px 3px)}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+::selection{background:var(--accent);color:#f6f4ea}
+:focus-visible{outline:1px solid var(--accent);outline-offset:4px}
+.m-shell{max-width:720px;margin:0 auto;padding:70px 28px 90px}
+.m-head{margin-bottom:54px;border-bottom:2px solid var(--ink);padding-bottom:26px;position:relative}
+.m-brand{font-size:24px;font-weight:400;letter-spacing:2px;font-style:italic}
+.m-brand::before{content:"";display:inline-block;width:14px;height:14px;background:var(--accent);margin-right:14px;vertical-align:2px}
+.m-tag{color:var(--ink2);font:11px ui-sans-serif,sans-serif;margin-top:12px;letter-spacing:3px;text-transform:uppercase}
+.m-nav{display:flex;gap:26px;margin-top:22px;font:10.5px ui-sans-serif,sans-serif;letter-spacing:3px;text-transform:uppercase}
+.m-nav a{color:var(--ink2);padding-bottom:4px;border-bottom:1px solid transparent}
+.m-nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.m-head::after{content:"EST · MMXXVI";position:absolute;right:0;bottom:26px;font:9px ui-sans-serif,sans-serif;letter-spacing:2px;color:var(--ink3)}
+.m-row{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline;position:relative}
+.m-row:first-child{border-top:1px solid var(--line)}
+.m-row::before{content:"";position:absolute;left:-16px;top:50%;width:8px;height:8px;transform:translateY(-50%) rotate(45deg);background:var(--bg);border:1px solid var(--ink3);opacity:0;transition:opacity .2s}
+.m-row:hover::before{opacity:1;background:var(--accent);border-color:var(--accent)}
+.m-row time{color:var(--ink3);font:10.5px ui-sans-serif,sans-serif;flex:0 0 50px;letter-spacing:1px}
+.m-row .m-t{font-size:18px;letter-spacing:.5px}
+.m-row:hover .m-t{color:var(--c3);font-style:italic}
+.m-row .m-x{display:none}
+.m-pager{display:flex;gap:18px;justify-content:center;padding-top:40px;font:11px ui-sans-serif,sans-serif;letter-spacing:2px;color:var(--ink3)}
+.m-pager a:hover{color:var(--accent)}
+.m-art h1{font-size:30px;font-weight:400;line-height:1.5;letter-spacing:1px;margin-bottom:14px}
+.m-meta{color:var(--ink3);font:10.5px ui-sans-serif,sans-serif;letter-spacing:2.5px;text-transform:uppercase;margin:0 0 34px;padding-bottom:20px;border-bottom:1px double var(--ink3)}
+.m-art img{margin:0 0 34px;border:8px solid #f6f4ea;box-shadow:0 0 0 1px var(--line),0 16px 36px -20px rgba(60,50,20,.5)}
+.prose p{margin:0 0 1.5em;color:#3d3a31}
+.prose h2{font-size:21px;font-weight:400;letter-spacing:1px;margin:2em 0 1em;padding-left:16px;border-left:3px solid var(--accent)}
+.prose h3{font-size:17px;font-weight:400;font-style:italic;margin:1.6em 0 .7em;color:var(--c3)}
+.prose a{color:var(--accent);border-bottom:1px solid rgba(163,116,44,.45);text-underline-offset:4px}
+.prose blockquote{font-style:italic;color:var(--ink2);text-align:center;margin:2.2em 2em;position:relative}
+.prose blockquote::before,.prose blockquote::after{content:"—";color:var(--accent);display:block;margin:10px auto;width:26px;border-top:1px solid var(--accent)}
+.prose pre{background:#2b2924;color:#e8e2d2;padding:18px;overflow:auto;font:12.5px/1.8 ui-monospace,monospace;margin:1.8em 0}
+.prose code{font:13px ui-monospace,monospace;background:var(--panel);padding:2px 7px;color:var(--c3)}
+.prose pre code{background:none;color:inherit}
+.prose img{margin:1.8em auto;border:6px solid #f6f4ea;box-shadow:0 0 0 1px var(--line)}
+.prose ul,.prose ol{padding-left:1.6em;margin:0 0 1.5em}
+.prose li::marker{color:var(--accent)}
+.prose th,.prose td{border-bottom:1px solid var(--line);padding:9px 13px 9px 0;text-align:left}
+.prose table{border-collapse:collapse;margin:1.8em 0;width:100%}
+.prose thead th{font:10px ui-sans-serif,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--ink2);border-bottom:1px solid var(--ink)}
+.m-next{margin-top:54px;padding-top:22px;border-top:1px double var(--ink3);font-size:13px;color:var(--ink2);font-style:italic}
+.m-next a{color:var(--accent);border-bottom:1px solid rgba(163,116,44,.45)}
+.m-ah{font:10px ui-sans-serif,sans-serif;letter-spacing:5px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;padding-bottom:14px;border-bottom:1px solid var(--ink)}
+.m-list{padding-bottom:30px}
+.m-list .m-row time{flex:0 0 92px}
+.comments{margin-top:54px;border-top:1px solid var(--ink);padding-top:24px}
+.comments h3{font:10px ui-sans-serif,sans-serif;letter-spacing:4px;text-transform:uppercase;margin-bottom:16px;color:var(--ink2)}
+.comments h3::after{content:" ·······································";color:var(--line);letter-spacing:0}
+.cmt{padding:13px 0;border-bottom:1px solid var(--line)}
+.cmt b{font-style:italic;font-size:14px}
+.cmt time{color:var(--ink3);font:10px ui-sans-serif,sans-serif;margin-left:10px;letter-spacing:1px}
+.cmt-form{display:flex;flex-direction:column;gap:12px;margin-top:18px;max-width:440px}
+.cmt-form input,.cmt-form textarea{border:none;border-bottom:1px solid var(--ink3);background:transparent;padding:9px 2px;font:inherit;font-size:14px}
+.cmt-form input:focus,.cmt-form textarea:focus{outline:none;border-bottom-color:var(--accent)}
+.cmt-form button{align-self:flex-start;background:var(--ink);color:var(--panel);border:none;padding:12px 34px;font:10px ui-sans-serif,sans-serif;letter-spacing:4px;text-transform:uppercase;cursor:pointer}
+.cmt-form button:hover{background:var(--accent)}
+.m-foot{margin-top:80px;text-align:center;color:var(--ink3);font:9.5px ui-sans-serif,sans-serif;letter-spacing:3px;text-transform:uppercase}
+.m-foot::before{content:"◆";display:block;color:var(--accent);margin:0 auto 14px;font-size:9px}
+@media(max-width:560px){.m-head::after{display:none}}

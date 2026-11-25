@@ -1,0 +1,20 @@
+<section class="r-hero">
+  <h1 class="r-huge"><%= site.title %></h1>
+  <p class="r-sub"><%= site.description || site.subtitle %></p>
+</section>
+<div class="r-stack">
+<% page.posts.forEach((p, i) => { %>
+  <a class="r-card<%= i === 0 ? ' r-first' : '' %>" href="<%= url_for(p.path) %>">
+    <span class="r-num"><%= String(i + 1).padStart(2, '0') %></span>
+    <div class="r-body">
+      <h2><%= p.title %></h2>
+      <p><%= p.excerpt %></p>
+      <span class="r-meta"><%= date(p.date) %> · <%= p.categories.join('/') %> · <%= p.tags.map(t => '#'+t).join(' ') %></span>
+    </div>
+    <span class="r-arrow">→</span>
+  </a>
+<% }) %>
+</div>
+<% const pg = page.pagination || {current:1,total:1}; if (pg.total > 1) { %>
+<nav class="r-pager"><% for (let n=1;n<=pg.total;n++) { %><% if (n===pg.current) { %><span class="r-on"><%= n %></span><% } else { %><a href="<%= url_for(n===1?'':'page/'+n+'/') %>"><%= n %></a><% } %><% } %></nav>
+<% } %>

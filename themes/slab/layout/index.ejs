@@ -1,0 +1,21 @@
+<section class="hero">
+  <h1><%= site.title %><em>。</em></h1>
+  <p><%= site.subtitle %></p>
+</section>
+<div class="grid" style="--cols:<%= theme.columns || 3 %>">
+  <% page.posts.forEach((p, i) => {
+     const big = i === 0 && p.featured;
+     const hasCover = p.cover && p.featured; %>
+  <a class="b<%= big ? ' big' : '' %><%= hasCover ? ' img' : '' %>" href="<%= url_for(p.path) %>">
+    <% if (hasCover) { %><img src="<%= url_for(p.cover) %>" alt="<%= p.title %>" loading="<%= i < 2 ? 'eager' : 'lazy' %>"><div class="pad"><% } %>
+    <span class="tagline"><%= p.categories.join(' · ') || '笔记' %></span>
+    <h2><%= p.title %></h2>
+    <p class="ex"><%= p.excerpt %></p>
+    <span class="foot"><span><%= date(p.date, 'YYYY-MM-DD') %></span><span><%= p.reading_minutes ? p.reading_minutes + ' 分钟' : '→' %></span></span>
+    <% if (hasCover) { %></div><% } %>
+  </a>
+  <% }) %>
+</div>
+<% const pg = page.pagination || {current:1,total:1}; if (pg.total > 1) { %>
+<nav class="pager"><% for (let n = 1; n <= pg.total; n++) { %><% if (n === pg.current) { %><span class="cur"><%= n %></span><% } else { %><a href="<%= url_for(n === 1 ? '' : 'page/' + n + '/') %>"><%= n %></a><% } %><% } %></nav>
+<% } %>

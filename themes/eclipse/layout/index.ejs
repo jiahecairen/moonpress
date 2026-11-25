@@ -1,0 +1,65 @@
+<%
+  const AUTHOR = theme.author || site.author;
+  let feat = site.posts.filter(p => p.featured)
+    .sort((a, b) => (Number(a.data.order) || 99) - (Number(b.data.order) || 99));
+  if (feat.length >= 3) { const second = feat.splice(1, 1)[0]; feat.push(second); }  // 序列位置：最强01+次强末位
+  const pg = page.pagination || { current: 1, total: 1 };
+  const rest = page.posts;  // 首页文章流（含精选之外的）
+  const isBlog = !feat.length;
+%>
+<section class="hero wrap" data-reveal>
+  <span class="badge"><i></i><span data-zh="<%= theme.available.zh %>" data-en="<%= theme.available.en %>"><%= theme.available.zh %></span></span>
+  <h1 data-zh="<%= theme.hero.zh %>" data-en="<%= theme.hero.en %>"><%= theme.hero.zh %></h1>
+  <p data-zh="<%= theme.role.zh %>" data-en="<%= theme.role.en %>"><%= theme.role.zh %></p>
+</section>
+
+<% if (feat.length) { %>
+<section class="wrap" id="works">
+  <div class="section-label" data-reveal>
+    <h2>精选作品 01—0<%= feat.length %></h2>
+    <span class="faint" style="font-size:var(--fs-0)" data-zh="按分量排序" data-en="Ranked by impact">按分量排序</span>
+  </div>
+  <div class="works">
+    <% feat.forEach((p, i) => { %>
+    <a class="work" href="<%= url_for(p.path) %>" data-reveal>
+      <% if (p.cover) { %><div class="cover"><img src="<%= url_for(p.cover) %>" alt="<%= p.title %> — cover" loading="<%= i < 2 ? 'eager' : 'lazy' %>"></div><% } %>
+      <div style="padding:var(--s2) var(--s0) 0">
+        <% if (theme.numbering) { %><span class="no"><%= String(i + 1).padStart(2, '0') %></span><% } %>
+        <h3><%= p.title %></h3>
+        <p class="sub"><%= p.data.outcome || p.excerpt.slice(0, 80) %></p>
+        <p class="tags"><%= p.tags.join(' · ') %></p>
+      </div>
+    </a>
+    <% }) %>
+  </div>
+</section>
+<% } %>
+
+<% if (rest.length || pg.total > 1) { %>
+<section class="wrap" style="padding-top:var(--s6)">
+  <div class="section-label" data-reveal><h2><%= feat.length ? '近作' : '文章' %></h2>
+    <a class="faint" style="font-size:var(--fs-0)" href="<%= url_for('archives/') %>">归档 →</a></div>
+  <% rest.forEach(p => { %>
+  <article class="x-post" data-reveal>
+    <h2><a href="<%= url_for(p.path) %>"><%= p.title %></a></h2>
+    <p class="muted"><%= p.excerpt %></p>
+    <p class="tags faint" style="font-size:var(--fs-0);margin-top:4px">
+      <%= date(p.date) %> · <%= p.tags.map(t => '#' + t).join(' ') %>
+      <% if (p.reading_minutes) { %>· <%= p.reading_minutes %> 分钟<% } %></p>
+  </article>
+  <% }) %>
+  <% if (pg.total > 1) { %>
+  <nav class="pager">
+    <% for (let n = 1; n <= pg.total; n++) { %>
+      <% if (n === pg.current) { %><span class="cur"><%= n %></span><% } else { %>
+      <a href="<%= url_for(n === 1 ? '' : 'page/' + n + '/') %>"><%= n %></a><% } %>
+    <% } %>
+  </nav>
+  <% } %>
+</section>
+<% } %>
+
+<section class="wrap about" data-reveal>
+  <img src="<%= url_for('img/avatar.svg') %>" alt="<%= AUTHOR %>">
+  <p data-zh="<%= theme.about.zh %>" data-en="<%= theme.about.en %>"><%= theme.about.zh %></p>
+</section>

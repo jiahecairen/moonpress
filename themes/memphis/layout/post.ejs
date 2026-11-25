@@ -1,0 +1,9 @@
+<% const p = page.post; const idx = site.posts.findIndex(x => x.slug === p.slug); const next = site.posts[idx-1] || site.posts[idx+1]; %>
+<article class="r-art">
+  <p class="r-kick"><%= p.categories.join(' / ') %> — <%= date(p.date) %></p>
+  <h1 class="r-h1"><%= p.title %></h1>
+  <% if (p.cover) { %><figure class="r-fig"><img src="<%= url_for(p.cover) %>" alt="<%= p.title %>"></figure><% } %>
+  <div class="prose"><%- page.content %></div>
+  <%- page.comments_html || '' %>
+  <% if (next) { %><a class="r-next" href="<%= url_for(next.path) %>"><span>下一期</span><b><%= next.title %></b><i>→</i></a><% } %>
+</article>

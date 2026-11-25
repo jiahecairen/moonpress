@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>控制台 · Moonpress</title>
+<link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+<div id="login" class="login hidden">
+  <form id="loginForm" class="login-card">
+    <div class="moon">🌙</div>
+    <h1>Moonpress</h1>
+    <p class="dim">站点控制台</p>
+    <input type="password" id="pw" placeholder="密码" autocomplete="current-password" required>
+    <button type="submit">进入控制台</button>
+    <p id="loginErr" class="err"></p>
+  </form>
+</div>
+
+<div id="app" class="hidden">
+  <aside class="side">
+    <div class="brand">🌙 <b>Moonpress</b></div>
+    <nav id="nav">
+      <a href="#/" data-v="dash">▤ 仪表盘</a>
+      <a href="#/posts" data-v="posts">✎ 文章</a>
+      <a href="#/pages" data-v="pages">▦ 页面</a>
+      <a href="#/media" data-v="media">🗂 媒体库</a>
+      <a href="#/comments" data-v="comments">💬 评论<span id="cbadge" class="badge hidden"></span></a>
+      <a href="#/themes" data-v="themes">🎨 主题</a>
+      <a href="#/settings" data-v="settings">⚙ 设置</a>
+    </nav>
+    <div class="side-foot">
+      <a href="/" target="_blank">查看站点 ↗</a>
+      <a href="#/" id="logout">退出</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <header class="top">
+      <h2 id="viewTitle">仪表盘</h2>
+      <div class="top-actions"><button id="newPost" class="btn primary">+ 写文章</button></div>
+    </header>
+    <section id="view" class="view"></section>
+  </main>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+<script src="/admin/admin.js"></script>
+</body>
+</html>

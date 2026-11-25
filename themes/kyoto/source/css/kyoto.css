@@ -1,0 +1,77 @@
+/* Kyoto Ink —— 京都墨色：大量留白、朱印、竖排点缀 */
+:root{--bg:#f7f5f0;--ink:#232019;--ink2:#75705f;--ink3:#a9a393;--line:#ddd8cc;--accent:#b3402a;--panel:#efece3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:16px/2 "Hiragino Mincho ProN","Songti SC","Noto Serif SC",Georgia,serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+::selection{background:var(--accent);color:#faf8f2}
+:focus-visible{outline:1px solid var(--accent);outline-offset:4px}
+.wrap{max-width:880px;margin:0 auto;padding:0 28px}
+.mast{padding:80px 0 0;position:relative}
+.mast .row{display:block;border:none}
+.mast h1{font-size:34px;font-weight:400;letter-spacing:14px;writing-mode:horizontal-tb}
+.mast h1::after{content:"印";position:relative;display:inline-block;font-size:13px;letter-spacing:0;color:#fff;background:var(--accent);padding:4px 5px;margin-left:18px;vertical-align:6px;border-radius:2px;font-family:ui-sans-serif,sans-serif}
+.mast .motto{margin-top:20px;font-size:13.5px;color:var(--ink2);letter-spacing:4px}
+.mast nav{display:flex;gap:42px;margin-top:56px;padding:0 0 20px;border-bottom:1px solid var(--line);
+  font:11px ui-sans-serif,system-ui,sans-serif;letter-spacing:6px}
+.mast nav a{color:var(--ink2);padding-bottom:16px}
+.mast nav a:hover{color:var(--accent)}
+.feed{padding:10px 0 60px}
+.entry{position:relative;display:block;padding:56px 0;border-bottom:1px solid var(--line)}
+.entry::before{content:attr(data-i);position:absolute;left:-46px;top:60px;font:10px ui-sans-serif,sans-serif;color:var(--ink3);letter-spacing:2px}
+.entry .date{font:10px ui-sans-serif,sans-serif;color:var(--ink3);letter-spacing:4px}
+.entry h2{font-size:27px;font-weight:400;letter-spacing:3px;line-height:1.7;margin-top:10px}
+.entry:hover h2{color:var(--accent)}
+.entry .ex{color:var(--ink2);font-size:14.5px;margin-top:10px;max-width:46ch;line-height:2}
+.entry .meta{position:absolute;right:0;top:60px;writing-mode:vertical-rl;font:10px ui-sans-serif,sans-serif;color:var(--ink3);letter-spacing:4px;height:120px;overflow:hidden}
+.entry .meta b{color:var(--accent);font-weight:400;margin-left:6px}
+.art{max-width:36em;margin:0 auto;padding:90px 28px 100px;position:relative}
+.art .kicker{font:10px ui-sans-serif,sans-serif;letter-spacing:8px;color:var(--accent);display:block;margin-bottom:26px}
+.art h1{font-size:34px;font-weight:400;letter-spacing:6px;line-height:1.9}
+.art .byline{font:10px ui-sans-serif,sans-serif;color:var(--ink3);letter-spacing:5px;padding:22px 0 0;margin:30px 0 44px;text-transform:uppercase}
+.art .byline::before{content:"— ";color:var(--accent)}
+.art .cover{margin:0 0 44px}
+.prose p{margin:0 0 1.6em;text-align:justify;color:#3a352b}
+.prose h2{font-size:21px;font-weight:400;letter-spacing:4px;margin:2.4em 0 1em}
+.prose h2::before{content:"◆ ";font-size:10px;color:var(--accent);vertical-align:2px}
+.prose h3{font-size:17px;font-weight:400;letter-spacing:3px;margin:1.8em 0 .8em}
+.prose blockquote{color:var(--ink2);border-left:1px solid var(--accent);padding-left:24px;margin:2em 0;font-style:normal}
+.prose img{margin:2.2em 0}
+.prose pre{background:#232019;color:#efece3;padding:20px;overflow:auto;font:13px/1.7 ui-monospace,monospace;margin:2em 0}
+.prose code{font:13px ui-monospace,monospace;background:var(--panel);padding:2px 7px}
+.prose pre code{background:none;color:inherit}
+.prose a{color:var(--accent);border-bottom:1px solid rgba(179,64,42,.4);text-underline-offset:4px}
+.prose th,.prose td{border-bottom:1px solid var(--line);padding:9px 14px 9px 0}
+.prose table{border-collapse:collapse;margin:2em 0;width:100%}
+.prose ul,.prose ol{padding-left:1.6em;margin:0 0 1.6em}
+.tldr-p{background:var(--panel);padding:22px 26px;margin-bottom:40px;font-size:14.5px;color:var(--ink2);position:relative}
+.tldr-p::before{content:"摘要";position:absolute;top:-10px;left:20px;background:var(--accent);color:#fff;font:9px ui-sans-serif,sans-serif;letter-spacing:4px;padding:3px 8px 3px 12px}
+.tldr-p b{display:none}
+.nextline{margin-top:80px;text-align:center;display:block;padding:36px 0;border-top:1px solid var(--line);position:relative}
+.nextline::before{content:"◆";position:absolute;top:-7px;left:50%;transform:translateX(-50%);background:var(--bg);color:var(--accent);font-size:11px;padding:0 10px}
+.nextline .k{font:9px ui-sans-serif,sans-serif;letter-spacing:6px;color:var(--ink3);display:block;margin-bottom:12px}
+.nextline .t{font-size:22px;letter-spacing:4px}
+.nextline:hover .t{color:var(--accent)}
+.comments{margin-top:70px;border-top:1px solid var(--line);padding-top:30px}
+.comments h3{font:11px ui-sans-serif,sans-serif;letter-spacing:6px;margin-bottom:18px;color:var(--ink2)}
+.cmt{padding:14px 0;border-bottom:1px dotted var(--line)}
+.cmt b{font-size:13px;letter-spacing:2px}
+.cmt time{color:var(--ink3);font-size:10px;margin-left:12px;letter-spacing:1px}
+.cmt-form{display:flex;flex-direction:column;gap:14px;margin-top:20px;max-width:440px}
+.cmt-form input,.cmt-form textarea{border:none;border-bottom:1px solid var(--line);background:none;padding:10px 2px;font:inherit;font-size:14px}
+.cmt-form input:focus,.cmt-form textarea:focus{outline:none;border-bottom-color:var(--accent)}
+.cmt-form button{align-self:flex-start;background:var(--accent);color:#faf8f2;border:none;padding:12px 40px;font:10px ui-sans-serif,sans-serif;letter-spacing:6px;cursor:pointer}
+.pager{display:flex;gap:24px;justify-content:center;padding:40px 0}
+.pager a,.pager span{font:10px ui-sans-serif,sans-serif;letter-spacing:3px;color:var(--ink2)}
+.pager .cur{color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:4px}
+.foot{margin-top:40px;text-align:center;padding-bottom:60px}
+.foot .wrap{display:block;padding:0}
+.foot .wrap::before{content:"— 終 —";display:block;color:var(--ink3);font:10px ui-sans-serif,sans-serif;letter-spacing:6px;margin-bottom:18px}
+.foot .wrap span{font:9px ui-sans-serif,sans-serif;color:var(--ink3);letter-spacing:2px;margin:0 10px}
+.foot a{color:var(--accent)}
+.listpage{padding:80px 28px 100px;max-width:36em;margin:0 auto}
+.listpage .kicker{font:10px ui-sans-serif,sans-serif;letter-spacing:8px;color:var(--accent);display:block;margin-bottom:40px}
+.listpage .li{display:flex;gap:28px;padding:22px 2px;border-bottom:1px solid var(--line);align-items:baseline}
+.listpage .li time{font:10px ui-sans-serif,sans-serif;color:var(--ink3);width:88px;letter-spacing:1px}
+.listpage .li span{font-size:19px;letter-spacing:3px}
+.listpage .li:hover span{color:var(--accent)}
+@media(max-width:700px){.mast h1{letter-spacing:8px}.entry .meta{display:none}.mast nav{gap:22px;letter-spacing:3px}}

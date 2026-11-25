@@ -1,0 +1,11 @@
+<div class="wrap list">
+  <div class="section-label" data-reveal>
+    <h2><%= page.archive_name || '全部归档' %> · <%= page.posts.length %></h2>
+  </div>
+  <% page.posts.forEach(p => { %>
+  <a href="<%= url_for(p.path) %>" data-reveal>
+    <time><%= date(p.date, 'YYYY-MM') %></time>
+    <span class="t"><%= p.title %></span>
+  </a>
+  <% }) %>
+</div>

@@ -1,0 +1,15 @@
+<% const p = page.post, d = p.data;
+   const idx = site.posts.findIndex(x => x.slug === p.slug);
+   const next = site.posts[idx - 1] || site.posts[idx + 1]; %>
+<div class="case">
+  <span class="chip"><%= p.categories.join(' · ') %> · <%= date(p.date, 'YYYY-MM-DD') %></span>
+  <h1><%= p.title %></h1>
+  <% if (p.cover) { %><div class="cover"><img src="<%= url_for(p.cover) %>" alt="<%= p.title %>"></div><% } %>
+  <% if (Array.isArray(d.metrics)) { %><div class="stats">
+    <% d.metrics.forEach(m => { %><div class="stat"><b><%= m.value %></b><span><%= m.label %></span></div><% }) %>
+  </div><% } %>
+  <div class="prose"><%- page.content %></div>
+  <%- page.comments_html || '' %>
+  <% if (next) { %><a class="nextcard" href="<%= url_for(next.path) %>">
+    <div><p class="k">下一格</p><p class="t"><%= next.title %></p></div><span style="font-size:26px">→</span></a><% } %>
+</div>

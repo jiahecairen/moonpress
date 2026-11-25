@@ -1,0 +1,4 @@
+<div class="wrap listpage" style="padding:34px 24px 60px">
+  <p class="kicker" style="font:11px ui-sans-serif,sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:16px"><%= page.archive_name || '文章存档' %>（<%= page.posts.length %>）</p>
+  <% page.posts.forEach(p => { %><a class="li" href="<%= url_for(p.path) %>"><time><%= date(p.date, 'YYYY-MM') %></time><span style="font-size:19px"><%= p.title %></span></a><% }) %>
+</div>

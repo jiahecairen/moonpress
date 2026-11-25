@@ -1,0 +1,10 @@
+<% page.posts.forEach(p => { %>
+<a class="m-row" href="<%= url_for(p.path) %>">
+  <time><%= date(p.date, 'MM-DD') %></time>
+  <span class="m-t"><%= p.title %></span>
+  <span class="m-x"><%= p.excerpt.slice(0, 40) %>…</span>
+</a>
+<% }) %>
+<% const pg = page.pagination || {current:1,total:1}; if (pg.total > 1) { %>
+<nav class="m-pager"><% for (let n=1;n<=pg.total;n++) { %><% if (n===pg.current) { %><b><%= n %></b><% } else { %><a href="<%= url_for(n===1?'':'page/'+n+'/') %>"><%= n %></a><% } %><% } %></nav>
+<% } %>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title><%= page.title %></title>
+<meta name="description" content="<%= page.description || site.description || site.subtitle %>">
+<link rel="alternate" type="application/rss+xml" href="<%= url_for('feed.xml') %>">
+<link rel="stylesheet" href="<%= url_for('css/riso.css') %>">
+<% if (theme.accent) { %><style>:root{--accent:<%= theme.accent %>}</style><% } %>
+</head><body>
+<header class="r-head">
+  <div class="r-mast wrap">
+    <a class="r-logo" href="<%= url_for('/') %>"><span><%= site.title %></span></a>
+    <span class="r-issue"><%= site.subtitle %></span>
+    <nav class="r-nav">
+      <a href="<%= url_for('/') %>">首页</a>
+      <a href="<%= url_for('archives/') %>">归档</a>
+      <a href="<%= url_for('about/') %>">关于</a>
+      <a href="<%= url_for('feed.xml') %>">RSS</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<%- body %>
+</main>
+<footer class="r-foot wrap">
+  <span>© <%= year %> <%= site.author %></span>
+  <span>Moonpress · 手工印刷感</span>
+</footer>
+</body></html>

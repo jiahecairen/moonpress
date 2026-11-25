@@ -1,0 +1,15 @@
+<% const p = page.post; const idx = site.posts.findIndex(x => x.slug === p.slug); const next = site.posts[idx-1] || site.posts[idx+1]; %>
+<article class="tblock">
+<span class="prompt">$</span> cat <span class="cmd"><%= p.slug %>.md</span>
+<div class="tmeta">
+  <span>date: <%= date(p.date) %></span>
+  <span>tags: [<%= p.tags.join(',') %>]</span>
+  <span>cats: [<%= p.categories.join(',') %>]</span>
+  <% if (p.reading_minutes) { %><span>read: <%= p.reading_minutes %>min</span><% } %>
+</div>
+<h1 class="th1"><%= p.title %></h1>
+<% if (p.cover) { %><img src="<%= url_for(p.cover) %>" alt="<%= p.title %>"><% } %>
+<div class="prose"><%- page.content %></div>
+<%- page.comments_html || '' %>
+<% if (next) { %><p class="tnext"><span class="prompt">$</span> next → <a href="<%= url_for(next.path) %>"><%= next.slug %>.md</a></p><% } %>
+</article>

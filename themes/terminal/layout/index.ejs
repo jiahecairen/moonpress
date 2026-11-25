@@ -1,0 +1,16 @@
+<section class="tblock">
+<span class="prompt">$</span> ls -la source/_posts/ | sort -r
+<div class="flist">
+<% page.posts.forEach(p => { %>
+  <a class="frow" href="<%= url_for(p.path) %>">
+    <span class="perm">-rw-r--r--</span>
+    <span class="fdate"><%= date(p.date, 'YYYY-MM-DD') %></span>
+    <span class="fname"><%= p.slug %>.md</span>
+    <span class="ftitle"># <%= p.title %></span>
+  </a>
+<% }) %>
+</div>
+<% const pg = page.pagination || {current:1,total:1}; if (pg.total > 1) { %>
+<nav class="tpager"><% for (let n = 1; n <= pg.total; n++) { %><% if (n === pg.current) { %><span>[<%= n %>]</span><% } else { %><a href="<%= url_for(n === 1 ? '' : 'page/' + n + '/') %>">[<%= n %>]</a><% } %><% } %></nav>
+<% } %>
+</section>

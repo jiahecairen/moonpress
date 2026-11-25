@@ -1,0 +1,4 @@
+<section class="r-list">
+  <h1 class="r-h1 r-title"><%= page.archive_name || '全部期刊' %></h1>
+<% page.posts.forEach((p, i) => { %><a class="r-lrow" href="<%= url_for(p.path) %>"><span class="r-num"><%= String(i+1).padStart(2,'0') %></span><span class="r-lt"><%= p.title %></span><time><%= date(p.date) %></time></a><% }) %>
+</section>
