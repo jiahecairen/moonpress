@@ -46,7 +46,7 @@
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+    }, { threshold: 0.06, rootMargin: "0px 0px -2% 0px" });
     els.forEach(function (e, i) {
       e.style.setProperty('--d', (i % 6) * 60 + 'ms');
       io.observe(e);
