@@ -18,7 +18,7 @@
   <div>
     <span class="faint" style="font-size:var(--fs-0);letter-spacing:2px;text-transform:uppercase">
       <%= date(p.date, 'YYYY') %> · <%= p.tags.join(' · ') %></span>
-    <h1 style="font-size:var(--fs-6);line-height:1.1;margin:var(--s1) 0 var(--s2)"><%= p.title %></h1>
+    <h1 class="case-title"><%= p.title %></h1>
     <% if (p.cover) { %><img src="<%= url_for(p.cover) %>" alt="<%= p.title %> — hero"
       style="border-radius:var(--radius);border:1px solid var(--line)"><% } %>
 
