@@ -211,3 +211,5 @@ aside dd{margin-top:2px}
   .pager{gap:var(--s1);padding:var(--s4) 0}
 }
 
+
+.footer .cta{font-size:clamp(22px,6vw,40px);overflow-wrap:anywhere}
