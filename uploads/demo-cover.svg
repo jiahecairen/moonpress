@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#12121a"/><stop offset="1" stop-color="#2c2a3e"/></linearGradient></defs>
+  <rect width="1280" height="800" fill="url(#g)"/>
+  <path d="M820 210a190 190 0 1 0 0 320 230 230 0 0 1 0-320z" fill="#e6b877"/>
+  <circle cx="1040" cy="190" r="7" fill="#f5f4f0"/>
+  <circle cx="1105" cy="268" r="4.5" fill="#f5f4f0" opacity=".8"/>
+  <circle cx="985" cy="140" r="3" fill="#f5f4f0" opacity=".6"/>
+  <rect x="140" y="540" width="430" height="12" rx="6" fill="#e6b877" opacity=".55"/>
+  <rect x="140" y="578" width="270" height="12" rx="6" fill="#e6b877" opacity=".28"/>
+  <text x="140" y="480" font-family="Georgia,serif" font-size="68" fill="#f5f4f0" font-weight="bold">Moonpress</text>
+  <text x="142" y="640" font-family="sans-serif" font-size="26" fill="#9c99a8">本地优先 · 静态导出 · 后台内置</text>
+</svg>

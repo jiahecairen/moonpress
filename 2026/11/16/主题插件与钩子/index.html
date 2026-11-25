@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>主题、插件与钩子</title>
+  <meta name="description" content="本地优先的网站系统演示：后台写作、媒体库、评论审核、主题切换、静态导出">
+  <link rel="alternate" type="application/rss+xml" title="Moonpress 演示站" href="/moonpress/feed.xml">
+  <link rel="stylesheet" href="/moonpress/css/tokens.css">
+  <link rel="stylesheet" href="/moonpress/css/main.css">
+  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Moonpress","email":"mailto:hello@example.com","url":"https://jiahecairen.github.io/moonpress"}</script>
+</head>
+<body data-default-lang="zh">
+  <a class="skip" href="#main" data-zh="跳到主要内容" data-en="Skip to content">跳到主要内容</a>
+  <nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="/moonpress/">Moonpress <span class="moon">🌘</span></a>
+    <div class="links">
+      <a href="/moonpress/" data-zh="首页" data-en="Home">首页</a>
+      <a href="#works" data-zh="作品" data-en="Work">作品</a>
+      <a href="/moonpress/about/" data-zh="关于" data-en="About">关于</a>
+      <a href="/moonpress/archives/" data-zh="全部" data-en="Archive">全部</a>
+    </div>
+    <div class="tools">
+      <button class="chip" data-lang-toggle title="Switch language">EN</button>
+      <button class="chip" data-theme-toggle title="Toggle theme">◐</button>
+      <a class="chip solid" href="/moonpress/resume.pdf" data-zh="简历 PDF" data-en="Résumé">简历 PDF</a>
+    </div>
+  </div>
+</nav>
+
+  <main id="main">
+<article class="wrap case">
+  <aside>
+    
+    <p style="margin-top:var(--s4);font-size:var(--fs-0)"><a class="muted" href="/moonpress/">← 返回首页</a></p>
+  </aside>
+
+  <div>
+    <span class="faint" style="font-size:var(--fs-0);letter-spacing:2px;text-transform:uppercase">
+      2026 · 开发</span>
+    <h1 style="font-size:var(--fs-6);line-height:1.1;margin:var(--s1) 0 var(--s2)">主题、插件与钩子</h1>
+    
+
+    <div class="tldr" data-reveal>
+      <div class="row"><span class="k">一句话成果</span><span>写一款主题 = 一个目录 + 五个模板</span></div>
+      
+    </div>
+
+    <div class="article"><h2 id="主题-目录">主题 = 目录</h2><pre><code>themes/我的主题/
+├── theme.yml          # 名称/描述/作者
+├── _config.yml        # 主题配置（前台以 theme.xxx 取用）
+├── layout/            # layout.ejs 包裹 + index/post/page/archive(.ejs)
+└── source/            # css/js/img → 站点根
+</code></pre>
+<p>模板里可用：<code>site</code>、<code>page</code>、<code>config</code>、<code>theme</code>，以及 <code>url_for</code> <code>date</code> <code>relative_date</code> 等助手。</p>
+<h2 id="插件-一个-js-文件">插件 = 一个 JS 文件</h2><p>放进站点 <code>plugins/</code>，导出一个函数：</p>
+<pre><code class="language-js">module.exports = (api) =&gt; {
+  api.filter(&#39;post_init&#39;, post =&gt; { /* 改数据 */ return post; });
+  api.filter(&#39;post_render&#39;, html =&gt; html.toUpperCase()); // 别真这么干
+  api.action(&#39;server_start&#39;, (site, port) =&gt; console.log(&#39;起来了&#39;, port));
+};
+</code></pre>
+<p>内置钩子：<code>post_init</code> <code>post_render</code> <code>page_render</code> <code>template_locals</code> <code>site_ready</code> <code>comment_posted</code> <code>server_start</code> <code>generate_end</code>。</p>
+<p>引擎自带的 <code>reading-time</code>（阅读时间）与 <code>external-links</code>（外链安全）插件就是现成示范。</p>
+</div>
+    <section class="comments" id="comments"><h3>留言 </h3>
+<form method="post" action="/api/comments" class="cmt-form"><input type="hidden" name="slug" value="主题插件与钩子">
+<input type="text" name="author" placeholder="称呼" maxlength="40" required>
+<input type="email" name="email" placeholder="邮箱（不公开）" maxlength="80">
+<textarea name="text" placeholder="友善的留言…（会先过审核）" maxlength="2000" required></textarea>
+<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+<button type="submit">提交</button></form></section>
+
+    
+    <a class="next-proj" href="/moonpress/2026/11/18/%E5%86%99%E4%BD%9C%E4%B8%8E%E5%AA%92%E4%BD%93/" data-reveal>
+      <div><span class="k">下一个项目</span><p class="t">写作与媒体：后台五分钟上手</p></div>
+      <span style="font-size:var(--fs-5)">→</span>
+    </a>
+    
+  </div>
+</article>
+</main>
+  <footer class="footer">
+  <div class="wrap">
+    <p class="faint" style="font-size:var(--fs-1);margin-bottom:var(--s2)" data-zh="有合适的机会？我的收件箱很安静，正等你的信。" data-en="A role worth designing for? My inbox is quietly waiting.">有合适的机会？我的收件箱很安静，正等你的信。</p>
+    <a class="cta" href="mailto:hello@example.com">hello@example.com</a>
+    <div class="social">
+      
+      <a href="https://github.com/yourname" rel="me" target="_blank">GitHub ↗</a>
+      
+      <a href="https://linkedin.com/in/yourname" rel="me" target="_blank">LinkedIn ↗</a>
+      
+      <a href="https://dribbble.com/yourname" rel="me" target="_blank">Dribbble ↗</a>
+      
+    </div>
+    <div class="meta">
+      <span>🌘 Moonlit Folio</span>
+      
+      <span>© 2026 Moonpress</span>
+    </div>
+  </div>
+</footer>
+
+  <script src="/moonpress/js/main.js" defer></script>
+</body>
+</html>
